@@ -88,7 +88,7 @@ const renderListCharacter = async (page, n) => {
 };
 
 const renderControls = (page) => {
-  const baseUrlpage = "../index.html?page=";
+  const baseUrlpage = ".../index.html?page=";
   const number = parseInt(page);
   const prev = number - 1;
   const next = number + 1;
