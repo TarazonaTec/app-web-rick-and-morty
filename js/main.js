@@ -1,4 +1,3 @@
-var paginaActual = 2;
 var tototalPagiacion;
 
 const URL_PATH = "https://rickandmortyapi.com/api";
@@ -8,9 +7,8 @@ const HTMLresponse = document.querySelector("#app");
 document.addEventListener("DOMContentLoaded", () => {
   let { page } = getUrlVars();
   page == undefined ? (page = 1) : null;
-  renderListCharacter(page,"");
+  renderListCharacter(page, "");
   renderControls(page);
-
 });
 
 const getUrlVars = () => {
@@ -31,42 +29,65 @@ const btnSearch = () => {
   let { page } = getUrlVars();
   page == undefined ? (page = 1) : null;
 
-  renderListCharacter(page,txtCharacter);
-
+  renderListCharacter(page, txtCharacter);
 };
 
-const getCharacter = (page,n) => {
+const getCharacter = (page, n) => {
   const url = `${URL_PATH}/character/?page=${page}&name=${n}`;
 
   return fetch(url)
     .then((response) => response.json())
-    .then((result) => result)
+    .then((result) => result.results)
     .catch((error) => console.log(error));
 };
 
-const renderListCharacter = async (page,n) => {
-  const character = await getCharacter(page,n);
+const renderListCharacter = async (page, n) => {
+  const character = await getCharacter(page, n);
   let htmlCharacter = "";
   console.log(character);
-  character.results.forEach((element) => {
-    const { id, name, image, species, status } = element;
-    htmlCharacter += `<div class="card" style="width: 18rem;">
-      <img src="${image}" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">${name}</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+
+  if (character != undefined) {
+    character.forEach((element) => {
+      const { id, name, image, species, status, location } = element;
+      htmlCharacter += `
+   
+      <div class="card card-character" style="width: 14rem;">
+        
+      <a href="./personaje.html?id=${id}" class="card-link">
+        <img src="${image}" class="card-img-top" alt="">
+        <div class="card-body">
+          <h5 class="card-title card-title__color">${name}</h5>
+         
+          <ul class="card-list__background">
+  <li class="">${status}</li>
+  <li class="">${species}</li>
+
+</ul>
+
+        </div>
+        
+        <div class="card-character-teleportation">
+         
+        </div>
+
+        </a>
+        
+
+ 
+
       </div>
-    </div>
-    `;
-  });
+      
+      `;
+    });
+  } else {
+    htmlCharacter = `<div><h1>No hay personaje </h1> </div>`;
+  }
 
   const appDiv = document.querySelector("#app");
   appDiv.innerHTML = htmlCharacter;
 };
 
 const renderControls = (page) => {
-  
   const baseUrlpage = "../index.html?page=";
   const number = parseInt(page);
   const prev = number - 1;
