@@ -18,6 +18,7 @@ const getUrlVars = () => {
   return vars;
 };
 
+
 const btnSearch = () => {
   event.preventDefault();
   const inputSearch = document.querySelector("#search-character");
@@ -27,6 +28,7 @@ const btnSearch = () => {
 
   window.location.href = `../buscador.html?page=${page}&name=${txtCharacter}`;
 };
+
 
 const getCharacter = (characterId) => {
   const url = `${URL_PATH}/character/${characterId}`;
