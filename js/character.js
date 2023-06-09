@@ -26,7 +26,7 @@ const btnSearch = () => {
   let { page } = getUrlVars();
   page == undefined ? (page = 1) : null;
 
-  window.location.href = `../buscador.html?page=${page}&name=${txtCharacter}`;
+  window.location.href = `./buscador.html?page=${page}&name=${txtCharacter}`;
 };
 
 
