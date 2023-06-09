@@ -1,0 +1,82 @@
+.navbar-content-background {
+  background-color: #171731;
+}
+#app {
+}
+.card-character {
+  margin: 5px auto;
+  border-color: rgb(226, 226, 226);
+  box-shadow: 4px 4px rgb(80, 79, 79);
+  position: relative;
+  background-color: #fbba9a;
+}
+
+.card-character-teleportation {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 14rem;
+}
+
+.card-character-teleportation:hover {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 14rem;
+
+  background-image: url("../img/portal.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  opacity: 0.8;
+
+  border-radius: 0.375rem;
+}
+
+.card-link {
+  text-decoration: none;
+}
+
+@font-face {
+  font-family: "Futura";
+  font-style: normal;
+  font-weight: normal;
+  src: local("?"), url("../font/get_schwifty.woff") format("woff"),
+    url("../font/get_schwifty.ttf") format("truetype");
+}
+.navbar-title {
+  font-family: futura;
+  font-size: 2rem;
+  color: #03b0c9;
+
+  -webkit-text-stroke: 1px #84ba4a;
+}
+
+.nav-link__color {
+  color: #99c839;
+  font-size: 18px;
+}
+
+.nav-link__color:hover {
+  color: #ffffff;
+}
+
+.card-title__color {
+  color: #000000;
+}
+
+.card-list__background {
+  list-style-type: none;
+
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.navbar-toggler__background {
+  background-color: #ffffff;
+}
+.pagination .active {
+  --bs-pagination-active-border-color: #171731;
+  --bs-pagination-active-bg: #171731;
+}
